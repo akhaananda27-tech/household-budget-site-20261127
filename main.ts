@@ -12,7 +12,7 @@
 // Both runs must write identical bytes, so nothing here depends on the
 // clock, the environment, or the order the filesystem lists files in.
 
-import { cpSync, existsSync, mkdirSync, rmSync, writeFileSync } from "node:fs";
+import { cpSync, existsSync, mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { buildDossier } from "./vendor/makefun-frontend.ts";
@@ -20,9 +20,9 @@ import { buildDossier } from "./vendor/makefun-frontend.ts";
 const repoRoot = fileURLToPath(new URL(".", import.meta.url));
 const outDir = process.env.MAKEFUN_OUTPUT_DIR ?? "/output";
 
-// Start from an empty output directory so a stale file from an earlier
-// run can never leak into the entry.
-rmSync(outDir, { recursive: true, force: true });
+// The output directory is a mounted volume in the grader, so it must never
+// be removed — only created if missing. (rmSync on a mount point throws
+// EBUSY, which killed the first submission with exit code 1.)
 mkdirSync(outDir, { recursive: true });
 
 // The whole site, as shipped: app/index.html opens it in a browser.
