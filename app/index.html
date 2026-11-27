@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>RumahBudget — Anggaran Keluarga Hartono</title>
+<meta name="description" content="RumahBudget: perencana anggaran bulanan, pelacak pengeluaran, target tabungan, kalender tagihan, dan laporan untuk satu keluarga. Semua data tersimpan di perangkat Anda.">
+<link rel="stylesheet" href="./style.css">
+</head>
+<body>
+<header class="topbar">
+  <div>
+    <a class="brand" href="#/">Rumah<em>Budget</em></a>
+    <span class="tagline">Anggaran keluarga, rapi setiap bulan</span>
+  </div>
+  <nav class="main-nav" aria-label="Navigasi utama">
+    <a href="#/" data-route="/">Dashboard</a>
+    <a href="#/planner" data-route="/planner">Perencana Anggaran</a>
+    <a href="#/expenses" data-route="/expenses">Pengeluaran</a>
+    <a href="#/goals" data-route="/goals">Target Tabungan</a>
+    <a href="#/bills" data-route="/bills">Tagihan</a>
+    <a href="#/reports" data-route="/reports">Laporan</a>
+  </nav>
+</header>
+
+<main id="app" aria-live="polite">
+  <h1>Dashboard — November 2026</h1>
+  <p class="lede">Memuat anggaran Keluarga Hartono…</p>
+</main>
+
+<footer>
+  <span id="foot-totals">Bulan ini: memuat…</span>
+  <span>RumahBudget · data contoh keluarga Hartono, Jakarta · semua perubahan tersimpan di perangkat Anda · <button id="reset-data" type="button" class="ghost">Kembalikan data awal</button></span>
+</footer>
+
+<script type="module" src="./main.js"></script>
+</body>
+</html>
